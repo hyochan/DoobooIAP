@@ -1,0 +1,9 @@
+{
+  "name": "dooboo",
+  "displayName": "dooboo",
+  "entryPoint": "index.js",
+  "packagerOpts": {
+    "assetExts": ["ttf", "png"],
+    "sourceExts": ["ts", "tsx"]
+  }
+}
