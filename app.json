@@ -1,6 +1,6 @@
 {
-  "name": "dooboo",
-  "displayName": "dooboo",
+  "name": "DoobooIAP",
+  "displayName": "DoobooIAP",
   "entryPoint": "index.js",
   "packagerOpts": {
     "assetExts": ["ttf", "png"],
