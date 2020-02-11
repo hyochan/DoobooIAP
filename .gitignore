@@ -64,3 +64,5 @@ package-lock.json
 ios/Pods/
 
 .vscode
+dooboo-iap.keystore
+gradle.properties
