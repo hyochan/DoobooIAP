@@ -1,5 +1,5 @@
 {
-  "name": "dooboo-iap",
+  "name": "DoobooIAP",
   "version": "0.0.1",
   "description": "boilerplate for react-native by dooboolab!",
   "author": "hyochan <dooboolab@gmail.com>",
@@ -49,6 +49,7 @@
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.7.2",
     "react-native-screens": "^2.0.0-beta.2",
+    "react-native-splash-screen": "^3.2.0",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
