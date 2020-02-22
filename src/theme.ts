@@ -1,39 +1,29 @@
+/* eslint-disable */
 export const colors = {
-  skyBlue: '#069ccd',
-  whiteGray: '#f7f6f3',
-  dusk: 'rgb(65,77,107)',
-  green: 'rgb(29,211,168)',
-  greenBlue: 'rgb(36,205,151)',
-  mediumGray: 'rgb(134,154,183)',
-  paleGray: 'rgb(221,226,236)',
-  lightBackground: 'white',
-  lightBackgroundLight: '#f7f6f3',
-  darkBackground: '#323739',
-  darkBackgroundLight: '#393241',
+  light: '#ffffff',
+  dark: '#151A25',
+  pink: '#151A25',
+  green: '#71F6CD',
+  blue: '#383E76',
 };
+/* eslint-enable */
 
 export const light = {
-  background: colors.lightBackground,
-  btnPrimary: colors.skyBlue,
-  btnPrimaryFont: 'white',
-  btnPrimaryLight: colors.whiteGray,
-  btnPrimaryLightFont: 'black',
-  textDisabled: '#969696',
-  btnDisabled: 'rgb(224,224,224)',
-  fontColor: 'black',
-  tintColor: '#333333',
+  background: colors.green,
+  backgroundPager: colors.light,
+  primary: '#71F6CD', // '#383E76',
+  fontColor: colors.dark,
+  focused: '#383E76',
+  headerFont: colors.light,
+  placeholder: '#676c7a',
 };
-
 export type Theme = typeof light;
-
 export const dark = {
-  background: colors.darkBackground,
-  btnPrimary: colors.skyBlue,
-  btnPrimaryFont: 'white',
-  btnPrimaryLight: colors.whiteGray,
-  btnPrimaryLightFont: 'black',
-  textDisabled: '#969696',
-  btnDisabled: 'rgb(224,224,224)',
-  fontColor: 'white',
-  tintColor: '#a3a3a3',
+  background: colors.dark,
+  backgroundPaper: colors.dark,
+  primary: '#A750B9',
+  fontColor: colors.light,
+  focused: colors.light,
+  headerFont: colors.light,
+  placeholder: '#8f94a3',
 };

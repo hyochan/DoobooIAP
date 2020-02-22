@@ -1,15 +1,17 @@
+import React, { ReactElement, useEffect } from 'react';
 import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
 
-import Intro from '../screen/Intro';
+import Main from '../screen/Main';
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
-import Temp from '../screen/Temp';
+import SignIn from '../screen/SignIn';
 import { useThemeContext } from '@dooboo-ui/native-theme';
 
 export type RootStackParamList = {
   default: undefined;
-  Intro: undefined;
-  Temp: { param: string };
+  SignIn: undefined;
+  Main: {
+    userId: string;
+  };
 }
 
 export type RootStackNavigationProps<
@@ -20,20 +22,28 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator(): React.ReactElement {
   const { theme } = useThemeContext();
+
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Intro"
+        initialRouteName="SignIn"
         screenOptions={{
           headerStyle: {
             backgroundColor: theme.background,
           },
           headerTitleStyle: { color: theme.fontColor },
-          headerTintColor: theme.tintColor,
+          headerTitle: '',
+          headerBackTitle: '',
         }}
       >
-        <Stack.Screen name="Intro" component={Intro} />
-        <Stack.Screen name="Temp" component={Temp} />
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="Main" component={Main} />
       </Stack.Navigator>
     </NavigationContainer>
   );
