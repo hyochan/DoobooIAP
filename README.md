@@ -1,6 +1,6 @@
 # DoobooIAP
 
-[![CircleCI](https://circleci.com/gh/hyochan/DoobooIAP.svg?style=svg)](https://circleci.com/gh/hyochan/DoobooIAP) [![Greenkeeper badge]
+[![CircleCI](https://circleci.com/gh/hyochan/DoobooIAP.svg?style=svg)](https://circleci.com/gh/hyochan/DoobooIAP)
 [![codecov](https://codecov.io/gh/hyochan/DoobooIAP/branch/master/graph/badge.svg)](https://codecov.io/gh/hyochan/DoobooIAP)
 
 ![AVN44abnij](https://user-images.githubusercontent.com/27461460/75094306-430fff80-55cd-11ea-816f-9ca696c938a3.gif)
