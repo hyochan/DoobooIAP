@@ -1,8 +1,9 @@
 # DoobooIAP
 
 [![CircleCI](https://circleci.com/gh/hyochan/DoobooIAP.svg?style=svg)](https://circleci.com/gh/hyochan/DoobooIAP) [![Greenkeeper badge]
-![AVN44abnij](https://user-images.githubusercontent.com/27461460/75094306-430fff80-55cd-11ea-816f-9ca696c938a3.gif)
 [![codecov](https://codecov.io/gh/hyochan/DoobooIAP/branch/master/graph/badge.svg)](https://codecov.io/gh/hyochan/DoobooIAP)
+
+![AVN44abnij](https://user-images.githubusercontent.com/27461460/75094306-430fff80-55cd-11ea-816f-9ca696c938a3.gif)
 
 > DoobooIAP repo aims to create full featured example app for in app purchase with [react-native-iap](https://github.com/dooboolab/react-native-iap). Bringing up the [issue provided in react-native-iap](https://github.com/dooboolab/react-native-iap/issues/855), we'd like to fully generate working example app.
 
