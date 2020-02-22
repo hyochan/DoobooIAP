@@ -6,6 +6,13 @@
 
 > DoobooIAP repo aims to create full featured example app for in app purchase with [react-native-iap](https://github.com/dooboolab/react-native-iap). Bringing up the [issue provided in react-native-iap](https://github.com/dooboolab/react-native-iap/issues/855), we'd like to fully generate working example app.
 
+
+### Setup firebase
+
+Copy `.env.sample` to `.env` and add firebase variables of your own.
+`cp .env.sample .env`
+
+
 ### Running the project
 
 Running the project is as simple as running
