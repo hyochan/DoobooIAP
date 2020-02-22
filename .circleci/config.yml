@@ -41,12 +41,6 @@ jobs:
             yarn lint
 
       - run:
-          name: COPY config
-          working_directory: .
-          command: |
-            yarn cp:config
-
-      - run:
           name: Typescript Test
           working_directory: .
           command: |
