@@ -59,7 +59,7 @@ jobs:
 
       - codecov/upload:
           file: ./coverage/lcov.info
-          token: 
+          token: 45f09f3a-c307-4112-aad9-9e69d4b77433
 
       - store_test_results:
           path: coverage
