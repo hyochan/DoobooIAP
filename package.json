@@ -9,6 +9,7 @@
     "dev": "node node_modules/react-native/local-cli/cli.js start",
     "tsc": "tsc",
     "watch": "tsc -w",
+    "cp:config": "cp .env.sample .env",
     "start": "npm run dev",
     "codecov": "codecov",
     "upgrade": "react-native-git-upgrade && npm install --save react-native",
