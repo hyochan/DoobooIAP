@@ -1,3 +1,5 @@
+import 'firebase/firestore';
+
 import React, { useEffect } from 'react';
 
 import Config from 'react-native-config';
@@ -29,7 +31,9 @@ const firebaseConfig = {
   appId,
   measurementId,
 };
-!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+!firebase.apps.length
+  ? firebase.initializeApp(firebaseConfig).firestore()
+  : firebase.app().firestore();
 
 function App(): React.ReactElement {
   return <RootNavigator />;
