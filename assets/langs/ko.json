@@ -1,10 +1,14 @@
 {
   "HELLO": "안녕하세요",
   "LOGIN": "로그인",
-  "EMAIL": "이메일",
-  "PASSWORD": "패스워드",
-  "SIGNUP": "회원가입",
-  "FORGOT_PW": "비밀번호를 잊어버리셨나요?",
+  "USER_ID": "사용자 아이디",
   "NAVIGATE": "%{name}으로 이동",
-  "CHANGE_THEME": "테마 변경"
+  "CHANGE_THEME": "테마 변경",
+  "USER_ID_HINT": "당신의 사용자 ID를 입력해주세요.",
+  "USER_ID_DESCRIPTION": "사용자 아이디는 어떠한 사용자가 구매를 했는지 알아내기 위해서 사용됩니다. 만약 서버에서 다른 사용자와의 구매정보가 중복되기를 원치 않으시면 스스로 중복을 방지할 만한 아이디를 입력해주시기 바랍니다.",
+  "WRITE_USER_ID": "사용자 아이디를 입력해주세요.",
+  "TOTAL_PURCHASE": "총 결재액",
+  "ONE_TIME_PURCHASE": "일회성 구매",
+  "SUBSCRIPTION_PURCHASE": "정기 결제",
+  "PURCHASE": "구매하기"
 }
