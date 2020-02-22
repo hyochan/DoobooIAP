@@ -161,11 +161,12 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://facebook.github.io/react-native/docs/signed-apk-android.
-            signingConfig signingConfigs.release
-            minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            if (file('../../.env').exists()) {
+                storeFile file(project.env.get('MYAPP_RELEASE_STORE_FILE'))
+                storePassword project.env.get('MYAPP_RELEASE_STORE_PASSWORD')
+                keyAlias project.env.get('MYAPP_RELEASE_KEY_ALIAS')
+                keyPassword project.env.get('MYAPP_RELEASE_KEY_PASSWORD')
+            }
         }
     }
     // applicationVariants are e.g. debug, release
