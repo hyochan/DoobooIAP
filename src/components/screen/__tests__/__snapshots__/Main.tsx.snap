@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Main] screen rendering test should render [Dark] theme 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <SafeAreaView
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#151A25",
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "flex-start",
+            "overflow": "hidden",
+          },
+        ]
+      }
+    >
+      <ScrollView
+        data={Array []}
+        disableVirtualization={false}
+        horizontal={false}
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        onEndReachedThreshold={2}
+        scrollEventThrottle={50}
+        sections={Array []}
+        stickyHeaderIndices={Array []}
+        stickySectionHeadersEnabled={true}
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+        updateCellsBatchingPeriod={50}
+        windowSize={21}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#383E76",
+                  "height": 160,
+                  "justifyContent": "center",
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 28,
+                }
+              }
+            >
+              10,000
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 8,
+                }
+              }
+            >
+              Total Purchase
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </View>
+</View>
+`;
+
+exports[`[Main] screen rendering test should render outer component and snapshot matches 1`] = `
+<SafeAreaView
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "#71F6CD",
+        "flexBasis": 0,
+        "flexDirection": "column",
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "flex-start",
+        "overflow": "hidden",
+      },
+    ]
+  }
+>
+  <ScrollView
+    ListHeaderComponent={[Function]}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    renderItem={[Function]}
+    renderSectionHeader={[Function]}
+    scrollEventThrottle={50}
+    sections={Array []}
+    stickyHeaderIndices={Array []}
+    stickySectionHeadersEnabled={true}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <View
+      onLayout={[Function]}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#383E76",
+              "height": 160,
+              "justifyContent": "center",
+              "width": "100%",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 28,
+            }
+          }
+        >
+          10,000
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 16,
+              "marginTop": 8,
+            }
+          }
+        >
+          Total Purchase
+        </Text>
+      </View>
+    </View>
+  </ScrollView>
+</SafeAreaView>
+`;

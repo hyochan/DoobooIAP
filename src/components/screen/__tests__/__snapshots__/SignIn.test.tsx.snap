@@ -1,0 +1,465 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Interaction should simulate onClick 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <SafeAreaView
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#71F6CD",
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <ScrollView
+        contentContainerStyle={
+          Object {
+            "alignItems": "center",
+          }
+        }
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+        >
+          <Image
+            source={
+              Object {
+                "canInstrument": true,
+                "createTransformer": [Function],
+                "getCacheKey": [Function],
+                "process": [Function],
+              }
+            }
+            style={
+              Object {
+                "height": 80,
+                "marginTop": 120,
+                "width": 300,
+              }
+            }
+          />
+        </TouchableOpacity>
+        <View
+          style={
+            Object {
+              "marginHorizontal": 48,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignSelf": "stretch",
+                  "flexDirection": "column",
+                },
+                Object {
+                  "marginTop": 60,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#b9b9c4",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "marginBottom": 5,
+                  },
+                  Object {
+                    "fontSize": 14,
+                  },
+                  null,
+                ]
+              }
+            >
+              User ID
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                      "width": "100%",
+                    },
+                    Object {
+                      "borderBottomWidth": 0.6,
+                      "borderColor": "#2E2E2E",
+                    },
+                    undefined,
+                    null,
+                  ]
+                }
+              >
+                <TextInput
+                  allowFontScaling={true}
+                  autoCapitalize="none"
+                  placeholder="Please type in your user id."
+                  placeholderTextColor="#676c7a"
+                  rejectResponderTermination={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#2c374e",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                        "fontSize": 15,
+                        "fontWeight": "500",
+                        "height": "100%",
+                        "paddingBottom": 15,
+                        "paddingTop": 15,
+                      },
+                      Object {
+                        "color": "#151A25",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="input-id"
+                  underlineColorAndroid="transparent"
+                  value=""
+                />
+              </View>
+            </View>
+          </View>
+          <TouchableOpacity
+            activeOpacity={0.2}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": 52,
+                "justifyContent": "center",
+                "marginTop": 24,
+              }
+            }
+            testID="btn-sign-up"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "borderColor": "blue",
+                    "flexDirection": "row",
+                    "height": 52,
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "borderColor": "#383E76",
+                    "borderWidth": 1,
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#069ccd",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "color": "#383E76",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                    },
+                  ]
+                }
+              >
+                Login
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <Text
+            style={
+              Object {
+                "color": "#676c7a",
+                "fontSize": 16,
+                "marginVertical": 32,
+              }
+            }
+          >
+            User ID is used to find out which user made a purchase. If you do not want to duplicate the purchase information with other users on the server, please enter an ID to prevent duplicates yourself.
+          </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </View>
+</View>
+`;
+
+exports[`Rendering renders without crashing 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <SafeAreaView
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#71F6CD",
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <ScrollView
+        contentContainerStyle={
+          Object {
+            "alignItems": "center",
+          }
+        }
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+        >
+          <Image
+            source={
+              Object {
+                "canInstrument": true,
+                "createTransformer": [Function],
+                "getCacheKey": [Function],
+                "process": [Function],
+              }
+            }
+            style={
+              Object {
+                "height": 80,
+                "marginTop": 120,
+                "width": 300,
+              }
+            }
+          />
+        </TouchableOpacity>
+        <View
+          style={
+            Object {
+              "marginHorizontal": 48,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignSelf": "stretch",
+                  "flexDirection": "column",
+                },
+                Object {
+                  "marginTop": 60,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#b9b9c4",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "marginBottom": 5,
+                  },
+                  Object {
+                    "fontSize": 14,
+                  },
+                  null,
+                ]
+              }
+            >
+              User ID
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                      "width": "100%",
+                    },
+                    Object {
+                      "borderBottomWidth": 0.6,
+                      "borderColor": "#2E2E2E",
+                    },
+                    undefined,
+                    null,
+                  ]
+                }
+              >
+                <TextInput
+                  allowFontScaling={true}
+                  autoCapitalize="none"
+                  placeholder="Please type in your user id."
+                  placeholderTextColor="#676c7a"
+                  rejectResponderTermination={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#2c374e",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                        "fontSize": 15,
+                        "fontWeight": "500",
+                        "height": "100%",
+                        "paddingBottom": 15,
+                        "paddingTop": 15,
+                      },
+                      Object {
+                        "color": "#151A25",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="input-id"
+                  underlineColorAndroid="transparent"
+                  value=""
+                />
+              </View>
+            </View>
+          </View>
+          <TouchableOpacity
+            activeOpacity={0.2}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": 52,
+                "justifyContent": "center",
+                "marginTop": 24,
+              }
+            }
+            testID="btn-sign-up"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "borderColor": "blue",
+                    "flexDirection": "row",
+                    "height": 52,
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "borderColor": "#383E76",
+                    "borderWidth": 1,
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#069ccd",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "color": "#383E76",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                    },
+                  ]
+                }
+              >
+                Login
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <Text
+            style={
+              Object {
+                "color": "#676c7a",
+                "fontSize": 16,
+                "marginVertical": 32,
+              }
+            }
+          >
+            User ID is used to find out which user made a purchase. If you do not want to duplicate the purchase information with other users on the server, please enter an ID to prevent duplicates yourself.
+          </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </View>
+</View>
+`;
