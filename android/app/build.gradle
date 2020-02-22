@@ -1,4 +1,6 @@
 apply plugin: "com.android.application"
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 
 import com.android.build.OutputFile
 
@@ -133,6 +135,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
         versionName "1.0"
+        resValue "string", "build_config_package", "YOUR_PACKAGE_NAME_IN_ANDROIDMANIFEST.XML"
     }
     splits {
         abi {
@@ -150,11 +153,11 @@ android {
             keyPassword 'android'
         }
         release {
-            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
-                storeFile file(MYAPP_RELEASE_STORE_FILE)
-                storePassword MYAPP_RELEASE_STORE_PASSWORD
-                keyAlias MYAPP_RELEASE_KEY_ALIAS
-                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            if (file('../../.env').exists()) {
+                storeFile file(project.env.get('MYAPP_RELEASE_STORE_FILE'))
+                storePassword project.env.get('MYAPP_RELEASE_STORE_PASSWORD')
+                keyAlias project.env.get('MYAPP_RELEASE_KEY_ALIAS')
+                keyPassword project.env.get('MYAPP_RELEASE_KEY_PASSWORD')
             }
         }
     }
