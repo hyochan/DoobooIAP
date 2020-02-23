@@ -179,7 +179,7 @@ exports[`[Stack] navigator should renders without crashing 1`] = `
                           Array [
                             Object {
                               "alignItems": "center",
-                              "backgroundColor": "#71F6CD",
+                              "backgroundColor": "#ffffff",
                               "flexBasis": 0,
                               "flexDirection": "column",
                               "flexGrow": 1,
@@ -203,6 +203,11 @@ exports[`[Stack] navigator should renders without crashing 1`] = `
                         >
                           <TouchableOpacity
                             activeOpacity={0.2}
+                            style={
+                              Object {
+                                "marginTop": 120,
+                              }
+                            }
                           >
                             <Image
                               source={
@@ -216,7 +221,6 @@ exports[`[Stack] navigator should renders without crashing 1`] = `
                               style={
                                 Object {
                                   "height": 80,
-                                  "marginTop": 120,
                                   "width": 300,
                                 }
                               }
@@ -258,7 +262,7 @@ exports[`[Stack] navigator should renders without crashing 1`] = `
                                   ]
                                 }
                               >
-                                User ID
+                                Email
                               </Text>
                               <View
                                 style={
@@ -281,7 +285,7 @@ exports[`[Stack] navigator should renders without crashing 1`] = `
                                       },
                                       Object {
                                         "borderBottomWidth": 0.6,
-                                        "borderColor": "#2E2E2E",
+                                        "borderColor": "#151A25",
                                       },
                                       undefined,
                                       null,
@@ -291,7 +295,7 @@ exports[`[Stack] navigator should renders without crashing 1`] = `
                                   <TextInput
                                     allowFontScaling={true}
                                     autoCapitalize="none"
-                                    placeholder="Please type in your user id."
+                                    placeholder="Please write email address"
                                     placeholderTextColor="#676c7a"
                                     rejectResponderTermination={true}
                                     style={
@@ -313,74 +317,330 @@ exports[`[Stack] navigator should renders without crashing 1`] = `
                                         },
                                       ]
                                     }
-                                    testID="input-id"
+                                    testID="input-email"
                                     underlineColorAndroid="transparent"
                                     value=""
                                   />
                                 </View>
                               </View>
                             </View>
-                            <TouchableOpacity
-                              activeOpacity={0.2}
+                            <View
                               style={
-                                Object {
-                                  "flexDirection": "row",
-                                  "height": 52,
-                                  "justifyContent": "center",
-                                  "marginTop": 24,
-                                }
+                                Array [
+                                  Object {
+                                    "alignSelf": "stretch",
+                                    "flexDirection": "column",
+                                  },
+                                  Object {
+                                    "marginTop": 32,
+                                  },
+                                ]
                               }
-                              testID="btn-sign-up"
                             >
+                              <Text
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#b9b9c4",
+                                      "fontSize": 14,
+                                      "fontWeight": "500",
+                                      "marginBottom": 5,
+                                    },
+                                    Object {
+                                      "fontSize": 14,
+                                    },
+                                    null,
+                                  ]
+                                }
+                              >
+                                Password
+                              </Text>
                               <View
                                 style={
                                   Array [
                                     Object {
                                       "alignItems": "center",
-                                      "alignSelf": "center",
-                                      "borderColor": "blue",
                                       "flexDirection": "row",
-                                      "height": 52,
-                                      "justifyContent": "center",
-                                    },
-                                    Object {
-                                      "borderColor": "#383E76",
-                                      "borderWidth": 1,
-                                      "width": "100%",
                                     },
                                   ]
                                 }
                               >
-                                <Text
+                                <View
                                   style={
                                     Array [
                                       Object {
-                                        "color": "#069ccd",
-                                        "fontSize": 16,
+                                        "alignItems": "center",
+                                        "flexDirection": "row",
+                                        "justifyContent": "space-between",
+                                        "width": "100%",
                                       },
                                       Object {
-                                        "color": "#383E76",
-                                        "fontSize": 16,
-                                        "fontWeight": "bold",
+                                        "borderBottomWidth": 0.6,
+                                        "borderColor": "#151A25",
+                                      },
+                                      undefined,
+                                      null,
+                                    ]
+                                  }
+                                >
+                                  <TextInput
+                                    allowFontScaling={true}
+                                    autoCapitalize="none"
+                                    placeholder="******"
+                                    placeholderTextColor="#676c7a"
+                                    rejectResponderTermination={true}
+                                    secureTextEntry={true}
+                                    style={
+                                      Array [
+                                        Object {
+                                          "color": "#2c374e",
+                                          "flexBasis": 0,
+                                          "flexGrow": 1,
+                                          "flexShrink": 1,
+                                          "fontSize": 15,
+                                          "fontWeight": "500",
+                                          "height": "100%",
+                                          "paddingBottom": 15,
+                                          "paddingTop": 15,
+                                        },
+                                        Object {
+                                          "color": "#151A25",
+                                          "fontSize": 16,
+                                        },
+                                      ]
+                                    }
+                                    testID="input-password"
+                                    underlineColorAndroid="transparent"
+                                    value=""
+                                  />
+                                </View>
+                              </View>
+                            </View>
+                            <View
+                              style={
+                                Array [
+                                  Object {
+                                    "flexDirection": "row",
+                                    "marginTop": 20,
+                                    "width": "100%",
+                                  },
+                                ]
+                              }
+                            >
+                              <TouchableOpacity
+                                activeOpacity={0.2}
+                                style={
+                                  Object {
+                                    "flex": 1,
+                                    "flexDirection": "row",
+                                    "height": 52,
+                                    "justifyContent": "center",
+                                  }
+                                }
+                                testID="btn-sign-up"
+                              >
+                                <View
+                                  style={
+                                    Array [
+                                      Object {
+                                        "alignItems": "center",
+                                        "alignSelf": "center",
+                                        "borderColor": "blue",
+                                        "flexDirection": "row",
+                                        "height": 52,
+                                        "justifyContent": "center",
+                                      },
+                                      Object {
+                                        "backgroundColor": "#ffffff",
+                                        "borderColor": "#A750B9",
+                                        "borderWidth": 1,
+                                        "width": "100%",
                                       },
                                     ]
                                   }
                                 >
-                                  Login
-                                </Text>
-                              </View>
-                            </TouchableOpacity>
-                            <Text
-                              style={
-                                Object {
-                                  "color": "#676c7a",
-                                  "fontSize": 16,
-                                  "marginVertical": 32,
+                                  <Text
+                                    style={
+                                      Array [
+                                        Object {
+                                          "color": "#069ccd",
+                                          "fontSize": 16,
+                                        },
+                                        Object {
+                                          "color": "#A750B9",
+                                          "fontSize": 14,
+                                          "fontWeight": "bold",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    Sign Up
+                                  </Text>
+                                </View>
+                              </TouchableOpacity>
+                              <View
+                                style={
+                                  Object {
+                                    "width": 20,
+                                  }
                                 }
+                              />
+                              <TouchableOpacity
+                                activeOpacity={0.2}
+                                style={
+                                  Object {
+                                    "backgroundColor": "#A750B9",
+                                    "flex": 1,
+                                    "flexDirection": "row",
+                                    "height": 52,
+                                    "justifyContent": "center",
+                                  }
+                                }
+                                testID="btn-sign-in"
+                              >
+                                <View
+                                  style={
+                                    Array [
+                                      Object {
+                                        "alignItems": "center",
+                                        "alignSelf": "center",
+                                        "borderColor": "blue",
+                                        "flexDirection": "row",
+                                        "height": 52,
+                                        "justifyContent": "center",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <Text
+                                    style={
+                                      Array [
+                                        Object {
+                                          "color": "#069ccd",
+                                          "fontSize": 16,
+                                        },
+                                        Object {
+                                          "color": "#ffffff",
+                                          "fontSize": 14,
+                                          "fontWeight": "bold",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    Login
+                                  </Text>
+                                </View>
+                              </TouchableOpacity>
+                            </View>
+                            <TouchableOpacity
+                              activeOpacity={0.2}
+                              style={
+                                Array [
+                                  Object {
+                                    "alignSelf": "center",
+                                    "marginBottom": 44,
+                                    "paddingBottom": 20,
+                                    "paddingLeft": 20,
+                                    "paddingRight": 20,
+                                    "paddingTop": 20,
+                                  },
+                                ]
+                              }
+                              testID="btn-find-pw"
+                            >
+                              <Text
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#1E6EFA",
+                                      "textDecorationLine": "underline",
+                                    },
+                                  ]
+                                }
+                              >
+                                Forgot password?
+                              </Text>
+                            </TouchableOpacity>
+                            <View
+                              style={
+                                Array [
+                                  Object {
+                                    "flexDirection": "row",
+                                    "flexWrap": "wrap",
+                                    "justifyContent": "center",
+                                    "paddingBottom": 40,
+                                    "paddingLeft": 0,
+                                    "paddingRight": 0,
+                                    "paddingTop": 0,
+                                  },
+                                ]
                               }
                             >
-                              User ID is used to find out which user made a purchase. If you do not want to duplicate the purchase information with other users on the server, please enter an ID to prevent duplicates yourself.
-                            </Text>
+                              <Text
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#777",
+                                      "lineHeight": 22,
+                                    },
+                                  ]
+                                }
+                              >
+                                We consider that you agree with 
+                              </Text>
+                              <Text
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#1E6EFA",
+                                      "lineHeight": 22,
+                                      "textDecorationLine": "underline",
+                                    },
+                                  ]
+                                }
+                                testID="btn-terms"
+                              >
+                                Terms for Agreement
+                              </Text>
+                              <Text
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#777",
+                                      "lineHeight": 22,
+                                    },
+                                  ]
+                                }
+                              >
+                                 and 
+                              </Text>
+                              <Text
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#1E6EFA",
+                                      "lineHeight": 22,
+                                      "textDecorationLine": "underline",
+                                    },
+                                  ]
+                                }
+                                testID="btn-privacy"
+                              >
+                                Privacy Policy
+                              </Text>
+                              <Text
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#777",
+                                      "lineHeight": 22,
+                                    },
+                                  ]
+                                }
+                              >
+                                 by going onto next step.
+                              </Text>
+                            </View>
                           </View>
                         </ScrollView>
                       </SafeAreaView>

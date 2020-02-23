@@ -92,6 +92,7 @@ let purchaseErrorSubscription: EmitterSubscription;
 
 function Intro(): React.ReactElement {
   const [sections, setSections] = useState<Section[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [totalPayedAmount, setTotalPayedAmount] = useState<number>(10000);
   const { theme } = useThemeContext();
 
@@ -133,7 +134,7 @@ function Intro(): React.ReactElement {
     products.forEach((product) => {
       product.type = 'inapp';
     });
-    console.log('products', JSON.stringify(products));
+    // console.log('products', JSON.stringify(products));
     const subscriptions = await RNIap.getSubscriptions(itemSubs);
     subscriptions.forEach((subscription) => {
       subscription.type = 'subs';
@@ -150,6 +151,7 @@ function Intro(): React.ReactElement {
       },
     ];
     setSections(list);
+    setLoading(false);
   }, [sections]);
 
   useEffect(() => {
@@ -208,7 +210,7 @@ function Intro(): React.ReactElement {
     <View style={{
       padding: 16,
       flexDirection: 'row',
-      backgroundColor: theme.backgroundPager,
+      backgroundColor: theme.background,
       borderBottomWidth: 1,
       borderBottomColor: theme.placeholder,
     }}>
@@ -242,7 +244,7 @@ function Intro(): React.ReactElement {
             marginTop: 16,
           }}
           style={{
-            backgroundColor: theme.backgroundPager,
+            backgroundColor: theme.background,
             height: 40,
             width: 120,
             borderWidth: 1,
@@ -251,7 +253,7 @@ function Intro(): React.ReactElement {
             paddingHorizontal: 10,
           }}
           textStyle={{
-            color: theme.fontColor,
+            color: theme.font,
           }}
           onPress={(): void => purchase(item)}
           text={item.localizedPrice}
@@ -265,6 +267,8 @@ function Intro(): React.ReactElement {
       <SectionList
         style={{ width: '100%' }}
         ListHeaderComponent={renderHeader}
+        refreshing={loading}
+        onRefresh={getProducts}
         // @ts-ignore
         sections={sections}
         keyExtractor={(item, index): string => index.toString()}
