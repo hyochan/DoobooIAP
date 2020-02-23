@@ -1,17 +1,23 @@
 import React, { ReactElement, useEffect } from 'react';
 import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
 
+import FindPw from '../screen/FindPw';
 import Main from '../screen/Main';
 import { NavigationContainer } from '@react-navigation/native';
 import SignIn from '../screen/SignIn';
+import SignUp from '../screen/SignUp';
+import WebView from '../screen/WebView';
 import { useThemeContext } from '@dooboo-ui/native-theme';
 
 export type RootStackParamList = {
   default: undefined;
   SignIn: undefined;
-  Main: {
-    userId: string;
+  SignUp: undefined;
+  FindPw: undefined;
+  WebView: {
+    uri: string;
   };
+  Main: undefined;
 }
 
 export type RootStackNavigationProps<
@@ -31,7 +37,7 @@ function RootNavigator(): React.ReactElement {
           headerStyle: {
             backgroundColor: theme.background,
           },
-          headerTitleStyle: { color: theme.fontColor },
+          headerTitleStyle: { color: theme.font },
           headerTitle: '',
           headerBackTitle: '',
         }}
@@ -43,6 +49,9 @@ function RootNavigator(): React.ReactElement {
             headerShown: false,
           }}
         />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="FindPw" component={FindPw} />
+        <Stack.Screen name="WebView" component={WebView} />
         <Stack.Screen name="Main" component={Main} />
       </Stack.Navigator>
     </NavigationContainer>
