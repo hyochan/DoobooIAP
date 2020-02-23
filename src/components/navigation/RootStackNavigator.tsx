@@ -5,6 +5,7 @@ import { Button } from '@dooboo-ui/native';
 import FindPw from '../screen/FindPw';
 import Main from '../screen/Main';
 import { NavigationContainer } from '@react-navigation/native';
+import { Platform } from 'react-native';
 import SignIn from '../screen/SignIn';
 import SignUp from '../screen/SignUp';
 import WebView from '../screen/WebView';
@@ -58,6 +59,10 @@ function RootNavigator(): ReactElement {
               component={Main}
               options={{
                 headerTransparent: true,
+                gestureDirection: Platform.select({
+                  ios: !user ? 'horizontal-inverted' : 'horizontal',
+                  default: !user ? 'vertical-inverted' : 'vertical',
+                }),
                 headerRight: (): ReactElement => <Button
                   onPress={async (): Promise<void> => {
                     setLoggingOut(true);
@@ -90,6 +95,10 @@ function RootNavigator(): ReactElement {
               component={SignIn}
               options={{
                 headerShown: false,
+                gestureDirection: Platform.select({
+                  ios: !user ? 'horizontal-inverted' : 'horizontal',
+                  default: !user ? 'vertical-inverted' : 'vertical',
+                }),
               }}
             />
         }
