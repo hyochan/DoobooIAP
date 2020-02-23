@@ -134,7 +134,7 @@ function Intro(): React.ReactElement {
     products.forEach((product) => {
       product.type = 'inapp';
     });
-    console.log('products', JSON.stringify(products));
+    // console.log('products', JSON.stringify(products));
     const subscriptions = await RNIap.getSubscriptions(itemSubs);
     subscriptions.forEach((subscription) => {
       subscription.type = 'subs';

@@ -1,8 +1,10 @@
 import { Button, EditText } from '@dooboo-ui/native';
 import React, { ReactElement, useState } from 'react';
 
+import { Alert } from 'react-native';
 import { RootStackNavigationProps } from '../navigation/RootStackNavigator';
 import { ScrollView } from 'react-native-gesture-handler';
+import firebase from 'firebase';
 import { getString } from '../../../STRINGS';
 import styled from 'styled-components/native';
 import { useThemeContext } from '@dooboo-ui/native-theme';
@@ -53,7 +55,25 @@ function Page(props: Props): ReactElement {
     }
 
     setSigningUp(true);
-    setSigningUp(false);
+
+    try {
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
+
+      const currentUser = firebase.auth().currentUser;
+      if (currentUser) {
+        firebase.firestore().collection('users').doc(currentUser.uid).set({
+          email,
+          name,
+        });
+        currentUser.sendEmailVerification();
+      }
+      navigation.goBack();
+      Alert.alert(getString('SUCCESS'), getString('EMAIL_VERIFICATION_SENT'));
+    } catch (err) {
+      Alert.alert(getString('ERROR'), `${err.code}: ${err.message}`);
+    } finally {
+      setSigningUp(false);
+    }
   };
 
   return (

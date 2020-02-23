@@ -23,5 +23,14 @@
   "AGREEMENT4": "Privacy Policy",
   "AGREEMENT5": " by going onto next step.",
   "NAME": "Name",
-  "NAME_HINT": "Please write your name"
+  "NAME_HINT": "Please write your name",
+  "SUCCESS": "Success",
+  "ERROR": "Error",
+  "EMAIL_VERIFICATION_SENT": "Email verification sent",
+  "EMAIL_PASSWORD_RESET_SENT": "Password reset email sent",
+  "VERIFY_EMAIL_ADDRESS": "Please verify email in your email inbox",
+  "ERROR_CHECK_EMAIL": "Please check your email address",
+  "ERROR_CHECK_PASSWORD": "Please check your password",
+  "PASSWORD_MUST_MATCH": "Passwords must match.",
+  "LOGOUT": "Logout"
 }

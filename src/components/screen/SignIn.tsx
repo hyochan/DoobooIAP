@@ -1,12 +1,14 @@
+import { Alert, Image, ScrollView, StatusBar, TouchableOpacity, View } from 'react-native';
 import { Button, EditText } from '@dooboo-ui/native';
-import { Image, ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import React, { ReactElement, useState } from 'react';
 import { ThemeType, useThemeContext } from '@dooboo-ui/native-theme';
 
 import { IC_LOGO } from '../../utils/Icons';
 import { RootStackNavigationProps } from '../navigation/RootStackNavigator';
+import firebase from 'firebase';
 import { getString } from '../../../STRINGS';
 import styled from 'styled-components/native';
+import { validateEmail } from '../../utils/common';
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -64,14 +66,26 @@ function Page(props: Props): ReactElement {
   const [errorPassword, setPasswordError] = useState<string>('');
   const { navigation } = props;
 
-  const next = (): void => {
-    // if (!userId) {
-    //   return setErrorText(getString('WRITE_USER_ID'));
-    // }
-    // setErrorText('');
-    // navigation.navigate('Main', {
-    //   userId,
-    // });
+  const login = async (): Promise<void> => {
+    if (!email || !validateEmail(email)) {
+      return Alert.alert(getString('ERROR'), getString('ERROR_CHECK_EMAIL'));
+    }
+
+    if (!password) {
+      return Alert.alert(getString('ERROR'), getString('ERROR_CHECK_PASSWORD'));
+    }
+
+    setIsLoggingIn(true);
+    try {
+      const { user } = await firebase.auth().signInWithEmailAndPassword(email, password);
+      if (user && !user.emailVerified) {
+        Alert.alert(getString('ERROR'), getString('VERIFY_EMAIL_ADDRESS'));
+      }
+    } catch (err) {
+      Alert.alert(getString('ERROR'), `${err.code}: ${err.message}`);
+    } finally {
+      setIsLoggingIn(false);
+    }
   };
 
   const goToSignUp = (): void => {
@@ -84,10 +98,6 @@ function Page(props: Props): ReactElement {
 
   const goToWebView = (uri: string): void => {
     props.navigation.navigate('WebView', { uri });
-  };
-
-  const signIn = async (): Promise<void> => {
-    props.navigation.navigate('Main');
   };
 
   return (
@@ -132,7 +142,7 @@ function Page(props: Props): ReactElement {
             placeholder={getString('EMAIL_HINT')}
             value={email}
             onChangeText={(text: string): void => setEmail(text)}
-            onSubmitEditing={next}
+            onSubmitEditing={login}
             errorText={errorEmail}
           />
           <EditText
@@ -142,6 +152,7 @@ function Page(props: Props): ReactElement {
             labelTextStyle={{ fontSize: 14 }}
             style={{ marginTop: 32 }}
             isRow={true}
+            secureTextEntry={true}
             label={getString('PASSWORD')}
             borderColor={theme.font}
             focusColor={theme.focused}
@@ -149,7 +160,7 @@ function Page(props: Props): ReactElement {
             placeholder="******"
             value={password}
             onChangeText={(text: string): void => setPassword(text)}
-            onSubmitEditing={next}
+            onSubmitEditing={login}
             errorText={errorPassword}
           />
           <ButtonWrapper>
@@ -179,7 +190,7 @@ function Page(props: Props): ReactElement {
             <Button
               testID="btn-sign-in"
               isLoading={isLoggingIn}
-              onPress={signIn}
+              onPress={login}
               containerStyle={{
                 flex: 1,
                 flexDirection: 'row',

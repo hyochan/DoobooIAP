@@ -22,5 +22,14 @@
   "AGREEMENT4": "개인정보취급방침",
   "AGREEMENT5": "에 동의하는 것으로 간주합니다.",
   "NAME": "이름",
-  "NAME_HINT": "이름을 입력해주세요"
+  "NAME_HINT": "이름을 입력해주세요",
+  "SUCCESS": "성공",
+  "ERROR": "오류",
+  "EMAIL_VERIFICATION_SENT": "이메일 인증 메일을 보냈습니다",
+  "EMAIL_PASSWORD_RESET_SENT": "비밀번호 재설정 메일을 보냈습니다",
+  "VERIFY_EMAIL_ADDRESS": "메일함을 확인하여 이메일을 인증해주세요",
+  "ERROR_CHECK_EMAIL": "이메일을 확인해주세요",
+  "ERROR_CHECK_PASSWORD": "비밀번호를 확인해주세요",
+  "PASSWORD_MUST_MATCH": "비밀번호가 일치하지 않습니다.",
+  "LOGOUT": "로그아웃"
 }

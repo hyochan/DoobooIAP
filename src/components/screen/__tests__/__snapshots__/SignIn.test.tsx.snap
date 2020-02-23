@@ -233,6 +233,7 @@ exports[`Interaction should simulate onClick 1`] = `
                   placeholder="******"
                   placeholderTextColor="#676c7a"
                   rejectResponderTermination={true}
+                  secureTextEntry={true}
                   style={
                     Array [
                       Object {
@@ -724,6 +725,7 @@ exports[`Rendering renders without crashing 1`] = `
                   placeholder="******"
                   placeholderTextColor="#676c7a"
                   rejectResponderTermination={true}
+                  secureTextEntry={true}
                   style={
                     Array [
                       Object {
