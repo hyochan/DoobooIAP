@@ -61,7 +61,7 @@ function Page(props: Props): ReactElement {
 
       const currentUser = firebase.auth().currentUser;
       if (currentUser) {
-        firebase.firestore().collection('users').doc(currentUser.uid).set({
+        await firebase.firestore().collection('users').doc(currentUser.uid).set({
           email,
           name,
         });
