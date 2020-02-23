@@ -1,49 +1,34 @@
 import 'react-native';
 
-import React, { ReactElement } from 'react';
-import { RenderResult, render } from '@testing-library/react-native';
+import * as React from 'react';
+
+import {
+  RenderResult,
+  render,
+} from '@testing-library/react-native';
 import { createTestElement, createTestProps } from '../../../../test/testUtils';
 
-import Screen from '../WebView';
+import WebView from '../WebView';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line
 let props: any;
-let component: ReactElement;
+let component: React.ReactElement;
 let testingLib: RenderResult;
 
-describe('Rendering', () => {
+describe('[WebView] screen', () => {
   beforeEach(() => {
-    props = createTestProps();
-    component = createTestElement(<Screen {...props} />);
+    props = createTestProps({
+      route: {
+        params: {
+          uri: 'https://dooboolab.com',
+        },
+      },
+    });
+    component = createTestElement(<WebView {...props} />);
     testingLib = render(component);
   });
 
   it('renders without crashing', () => {
-    const { baseElement } = testingLib;
-    expect(baseElement).toMatchSnapshot();
-    expect(baseElement).toBeTruthy();
-  });
-
-  it('should render [Text] with value "myText"', () => {
-    const textInstance = testingLib.getByTestId('myText');
-    expect(textInstance.props.children).toEqual('dooboolab');
-  });
-});
-
-describe('Interaction', () => {
-  beforeEach(() => {
-    props = createTestProps();
-    component = createTestElement(<Screen {...props} />);
-    testingLib = render(component);
-  });
-
-  it('should simulate onClick', () => {
     expect(testingLib.baseElement).toMatchSnapshot();
-    // const btn = testingLib.queryByTestId('btn');
-    // act(() => {
-    //   fireEvent.press(btn);
-    //   fireEvent.press(btn);
-    // });
-    // expect(cnt).toBe(3);
   });
 });

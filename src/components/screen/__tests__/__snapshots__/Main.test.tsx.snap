@@ -42,6 +42,13 @@ exports[`[Main] screen rendering test should render [Dark] theme 1`] = `
         initialNumToRender={10}
         maxToRenderPerBatch={10}
         onEndReachedThreshold={2}
+        refreshControl={
+          <RefreshControl
+            onRefresh={[Function]}
+            refreshing={true}
+          />
+        }
+        refreshing={true}
         scrollEventThrottle={50}
         sections={Array []}
         stickyHeaderIndices={Array []}
@@ -104,7 +111,7 @@ exports[`[Main] screen rendering test should render outer component and snapshot
       Object {
         "alignItems": "center",
         "alignSelf": "stretch",
-        "backgroundColor": "#71F6CD",
+        "backgroundColor": "#ffffff",
         "flexBasis": 0,
         "flexDirection": "column",
         "flexGrow": 1,
@@ -129,9 +136,17 @@ exports[`[Main] screen rendering test should render outer component and snapshot
     onEndReachedThreshold={2}
     onLayout={[Function]}
     onMomentumScrollEnd={[Function]}
+    onRefresh={[Function]}
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
     onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    refreshing={true}
     renderItem={[Function]}
     renderSectionHeader={[Function]}
     scrollEventThrottle={50}
