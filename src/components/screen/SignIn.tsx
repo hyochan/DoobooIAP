@@ -1,4 +1,11 @@
-import { Alert, Image, ScrollView, StatusBar, TouchableOpacity, View } from 'react-native';
+import {
+  Alert,
+  Image,
+  ScrollView,
+  StatusBar,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Button, EditText } from '@dooboo-ui/native';
 import React, { ReactElement, useState } from 'react';
 import { ThemeType, useThemeContext } from '@dooboo-ui/native-theme';
@@ -67,6 +74,9 @@ function Page(props: Props): ReactElement {
   const { navigation } = props;
 
   const login = async (): Promise<void> => {
+    if (firebase.auth().currentUser) {
+      await firebase.auth().signOut();
+    }
     if (!email || !validateEmail(email)) {
       return Alert.alert(getString('ERROR'), getString('ERROR_CHECK_EMAIL'));
     }
@@ -77,8 +87,11 @@ function Page(props: Props): ReactElement {
 
     setIsLoggingIn(true);
     try {
-      const { user } = await firebase.auth().signInWithEmailAndPassword(email, password);
+      const { user } = await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password);
       if (user && !user.emailVerified) {
+        firebase.auth().signOut();
         Alert.alert(getString('ERROR'), getString('VERIFY_EMAIL_ADDRESS'));
       }
     } catch (err) {
@@ -104,8 +117,7 @@ function Page(props: Props): ReactElement {
     <Container>
       <StatusBar
         barStyle={
-          themeType === ThemeType.LIGHT
-            ? 'dark-content' : 'light-content'
+          themeType === ThemeType.LIGHT ? 'dark-content' : 'light-content'
         }
       />
       <ScrollView
@@ -207,22 +219,24 @@ function Page(props: Props): ReactElement {
             />
           </ButtonWrapper>
           <FindPwTouchOpacity testID="btn-find-pw" onPress={goToFindPw}>
-            <FindPwText>
-              {getString('FORGOT_PW')}
-            </FindPwText>
+            <FindPwText>{getString('FORGOT_PW')}</FindPwText>
           </FindPwTouchOpacity>
           <StyledAgreementTextWrapper>
             <StyledAgreementText>{getString('AGREEMENT1')}</StyledAgreementText>
             <StyledAgreementLinedText
               testID="btn-terms"
-              onPress={(): void => goToWebView('https://dooboolab.com/termsofservice')}
+              onPress={(): void =>
+                goToWebView('https://dooboolab.com/termsofservice')
+              }
             >
               {getString('AGREEMENT2')}
             </StyledAgreementLinedText>
             <StyledAgreementText>{getString('AGREEMENT3')}</StyledAgreementText>
             <StyledAgreementLinedText
               testID="btn-privacy"
-              onPress={(): void => goToWebView('https://dooboolab.com/privacyandpolicy')}
+              onPress={(): void =>
+                goToWebView('https://dooboolab.com/privacyandpolicy')
+              }
             >
               {getString('AGREEMENT4')}
             </StyledAgreementLinedText>

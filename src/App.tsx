@@ -1,4 +1,5 @@
 import 'firebase/firestore';
+import 'firebase/auth';
 
 import React, { useEffect } from 'react';
 

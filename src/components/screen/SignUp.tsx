@@ -60,12 +60,22 @@ function Page(props: Props): ReactElement {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
 
       const currentUser = firebase.auth().currentUser;
+
       if (currentUser) {
-        await firebase.firestore().collection('users').doc(currentUser.uid).set({
-          email,
-          name,
-        });
-        currentUser.sendEmailVerification();
+        await Promise.all([
+          currentUser.updateProfile({
+            displayName: name,
+          }),
+          firebase
+            .firestore()
+            .collection('users')
+            .doc(currentUser.uid)
+            .set({
+              email,
+              name,
+            }),
+          currentUser.sendEmailVerification(),
+        ]);
       }
       navigation.goBack();
       Alert.alert(getString('SUCCESS'), getString('EMAIL_VERIFICATION_SENT'));
@@ -166,8 +176,16 @@ function Page(props: Props): ReactElement {
               testID="btn-sign-up"
               isLoading={signingUp}
               onPress={requestSignUp}
-              containerStyle={{ height: 52, width: '50%', backgroundColor: theme.primary }}
-              textStyle={{ color: theme.fontInverse, fontSize: 16, fontWeight: 'bold' }}
+              containerStyle={{
+                height: 52,
+                width: '50%',
+                backgroundColor: theme.primary,
+              }}
+              textStyle={{
+                color: theme.fontInverse,
+                fontSize: 16,
+                fontWeight: 'bold',
+              }}
               text={getString('SIGN_UP')}
             />
           </ButtonWrapper>
