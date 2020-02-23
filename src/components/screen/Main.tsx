@@ -71,6 +71,84 @@ const itemSubs = Platform.select({
   ],
 });
 
+enum ITEM_TYPE {
+  PRODUCT = 'product',
+  SUBSCRIPTION = 'subscription',
+}
+
+function getSkuType(item: Product | Subscription): ITEM_TYPE {
+  switch (item.type) {
+    case 'iap':
+    case 'inapp':
+      return ITEM_TYPE.PRODUCT;
+
+    case 'sub':
+    case 'subs':
+      return ITEM_TYPE.PRODUCT;
+  }
+}
+
+type IOS_PERIOD_UNIT = '' | 'DAY' | 'WEEK' | 'MONTH' | 'YEAR';
+function iosConvertPeriodToDays(
+  periodCount: number,
+  periodUnit: IOS_PERIOD_UNIT,
+): number {
+  switch (periodUnit) {
+    case '':
+      return 0;
+    case 'DAY':
+      return periodCount;
+    case 'WEEK':
+      return 7 * periodCount;
+    case 'MONTH':
+      return 30 * periodCount;
+    case 'YEAR':
+      return 365 * periodCount;
+  }
+}
+
+// https://developer.android.com/reference/java/time/Period
+type ANDROID_PERIOD =
+  | string
+  | 'P3D'
+  | 'P7D'
+  | 'P1W'
+  | 'P4W2D'
+  | 'P1M'
+  | 'P3M'
+  | 'P1Y';
+function androidConvertPeriodToDays(period: ANDROID_PERIOD): number {
+  const unit = [365, 30, 7, 1];
+  return period
+    .split(/P(\d+Y)?(\d+M)?(\d+W)?(\d+D)?/)
+    .slice(1, 5)
+    .map((p, i) => (!p ? 0 : Number(p.replace(/\D/g, '')) * unit[i]))
+    .reduce((a, b) => a + b, 0);
+}
+
+function getTrialPeriod(subscription?: Subscription): number {
+  if (!subscription) {
+    return 0;
+  }
+
+  const {
+    introductoryPriceNumberOfPeriodsIOS: periodCountIOS,
+    introductoryPriceSubscriptionPeriodIOS: periodUnitIOS,
+    freeTrialPeriodAndroid: periodAndroid,
+  } = subscription;
+  switch (Platform.OS) {
+    case 'android':
+      return androidConvertPeriodToDays(periodAndroid as ANDROID_PERIOD);
+    case 'ios':
+      return iosConvertPeriodToDays(
+        Number(periodCountIOS),
+        periodUnitIOS as IOS_PERIOD_UNIT,
+      );
+    default:
+      return 0;
+  }
+}
+
 interface Props {
   navigation: RootStackNavigationProps<'Main'>;
 }
@@ -168,7 +246,7 @@ function Intro(): React.ReactElement {
   }, []);
 
   const purchase = (item: Product | Subscription): void => {
-    if (item.type === 'inapp') {
+    if (getSkuType(item) === ITEM_TYPE.PRODUCT) {
       RNIap.requestPurchase(item.productId);
     } else {
       RNIap.requestSubscription(item.productId);
@@ -177,47 +255,64 @@ function Intro(): React.ReactElement {
 
   const renderHeader = (): ReactElement => (
     <Header>
-      <Text style={{
-        fontSize: 28,
-        color: 'white',
-      }}>{totalPayedAmount.toLocaleString()}</Text>
-      <Text style={{
-        marginTop: 8,
-        fontSize: 16,
-        color: 'white',
-      }}>{getString('TOTAL_PURCHASE')}</Text>
+      <Text
+        style={{
+          fontSize: 28,
+          color: 'white',
+        }}
+      >
+        {totalPayedAmount.toLocaleString()}
+      </Text>
+      <Text
+        style={{
+          marginTop: 8,
+          fontSize: 16,
+          color: 'white',
+        }}
+      >
+        {getString('TOTAL_PURCHASE')}
+      </Text>
     </Header>
   );
 
   const renderSectionHeader = (title: string): ReactElement => (
-    <View style={{
-      height: 40,
-      flexDirection: 'row',
-      paddingHorizontal: 16,
-      backgroundColor: theme.placeholder,
-    }}>
+    <View
+      style={{
+        height: 40,
+        flexDirection: 'row',
+        paddingHorizontal: 16,
+        backgroundColor: theme.placeholder,
+      }}
+    >
       <Text
         style={{
           fontSize: 13,
           color: theme.background,
           marginTop: 12,
         }}
-      >{title}</Text>
+      >
+        {title}
+      </Text>
     </View>
   );
 
   const renderItem = (item: Product | Subscription): ReactElement => (
-    <View style={{
-      padding: 16,
-      flexDirection: 'row',
-      backgroundColor: theme.background,
-      borderBottomWidth: 1,
-      borderBottomColor: theme.placeholder,
-    }}>
-      <Image source={IC_COIN} style={{
-        height: 80,
-        width: 80,
-      }}/>
+    <View
+      style={{
+        padding: 16,
+        flexDirection: 'row',
+        backgroundColor: theme.background,
+        borderBottomWidth: 1,
+        borderBottomColor: theme.placeholder,
+      }}
+    >
+      <Image
+        source={IC_COIN}
+        style={{
+          height: 80,
+          width: 80,
+        }}
+      />
       <View
         style={{
           flexDirection: 'column',
@@ -231,13 +326,28 @@ function Intro(): React.ReactElement {
             color: theme.brandLight,
             marginBottom: 4,
           }}
-        >{item.title}</Text>
+        >
+          {item.title}
+        </Text>
         <Text
           style={{
             fontSize: 14,
             color: theme.font,
           }}
-        >{item.productId}</Text>
+        >
+          {item.productId}
+        </Text>
+        <Text
+          style={{
+            fontSize: 14,
+            fontWeight: 'bold',
+            color: theme.warning,
+          }}
+        >
+          {getSkuType(item) === ITEM_TYPE.SUBSCRIPTION &&
+            getTrialPeriod(item as Subscription) !== 0 &&
+            `FREE TRIAL DAYS: ${getTrialPeriod(item as Subscription)}`}
+        </Text>
         <Button
           containerStyle={{
             width: 120,
@@ -273,7 +383,9 @@ function Intro(): React.ReactElement {
         sections={sections}
         keyExtractor={(item, index): string => index.toString()}
         renderItem={({ item }): ReactElement => renderItem(item)}
-        renderSectionHeader={({ section: { title } }): ReactElement => renderSectionHeader(title)}
+        renderSectionHeader={({ section: { title } }): ReactElement =>
+          renderSectionHeader(title)
+        }
       />
     </Container>
   );
