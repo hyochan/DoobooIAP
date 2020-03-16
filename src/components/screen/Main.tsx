@@ -171,7 +171,7 @@ let purchaseErrorSubscription: EmitterSubscription;
 function Intro(): React.ReactElement {
   const [sections, setSections] = useState<Section[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [totalPayedAmount, setTotalPayedAmount] = useState<number>(10000);
+  const [totalPaidAmount, setTotalPaidAmount] = useState<number>(10000);
   const { theme } = useThemeContext();
 
   const getProducts = useCallback(async (): Promise<void> => {
@@ -261,7 +261,7 @@ function Intro(): React.ReactElement {
           color: 'white',
         }}
       >
-        {totalPayedAmount.toLocaleString()}
+        {totalPaidAmount.toLocaleString()}
       </Text>
       <Text
         style={{

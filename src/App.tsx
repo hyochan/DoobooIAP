@@ -49,9 +49,7 @@ function ProviderWrapper(): React.ReactElement {
 
   return (
     <RootProvider
-      initialThemeType={
-        isDarkMode ? ThemeType.DARK : ThemeType.LIGHT
-      }
+      initialThemeType={isDarkMode ? ThemeType.DARK : ThemeType.LIGHT}
     >
       <App />
     </RootProvider>

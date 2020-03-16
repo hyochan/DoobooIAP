@@ -32,6 +32,9 @@
     "ios:iphone7": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 7'",
     "ios:reset": "rm -rf ios/build/ModuleCache",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint src --ext .ts,.tsx,.js,.jsx --fix",
+    "prettier": "prettier --check src/**/**.{ts,tsx,js,jsx}",
+    "prettier:fix": "prettier --write src/**/**.{ts,tsx,js,jsx}",
     "build:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ./ios",
     "build:android": "react-native bundle --entry-file index.js --platform android --dev false --bundle-output android/main.jsbundle --assets-dest ./android"
   },
@@ -82,15 +85,22 @@
     "babel-preset-react-native": "^5.0.2",
     "codecov": "^3.6.5",
     "eslint": "^6.8.0",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "jest-fetch-mock": "^3.0.1",
     "jest-styled-components": "^7.0.0",
     "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "^25.2.1",
     "typescript": "3.8.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:fix && pretty-quick --staged"
+    }
   }
 }

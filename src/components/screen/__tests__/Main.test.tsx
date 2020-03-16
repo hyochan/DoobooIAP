@@ -1,5 +1,10 @@
 import React, { ReactElement } from 'react';
-import { RenderResult, act, fireEvent, render } from '@testing-library/react-native';
+import {
+  RenderResult,
+  act,
+  fireEvent,
+  render,
+} from '@testing-library/react-native';
 import { createTestElement, createTestProps } from '../../../../test/testUtils';
 
 import Main from '../Main';

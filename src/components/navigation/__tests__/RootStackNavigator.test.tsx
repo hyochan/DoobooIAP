@@ -3,11 +3,7 @@ import 'react-native';
 import * as firebase from 'firebase';
 
 import React, { ReactElement } from 'react';
-import {
-  act,
-  render,
-  wait,
-} from '@testing-library/react-native';
+import { act, render, wait } from '@testing-library/react-native';
 import { createTestElement, createTestProps } from '../../../../test/testUtils';
 
 import StackNavigator from '../RootStackNavigator';
@@ -79,9 +75,7 @@ jest.spyOn(firebase, 'auth').mockImplementation((): any => {
 describe('[Stack] navigator', () => {
   beforeEach(() => {
     props = createTestProps();
-    component = createTestElement(
-      <StackNavigator {...props} />,
-    );
+    component = createTestElement(<StackNavigator {...props} />);
   });
 
   it('should renders without crashing', async () => {

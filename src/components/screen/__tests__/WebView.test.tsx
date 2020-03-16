@@ -2,10 +2,7 @@ import 'react-native';
 
 import * as React from 'react';
 
-import {
-  RenderResult,
-  render,
-} from '@testing-library/react-native';
+import { RenderResult, render } from '@testing-library/react-native';
 import { createTestElement, createTestProps } from '../../../../test/testUtils';
 
 import WebView from '../WebView';
