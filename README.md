@@ -1,6 +1,6 @@
 # DoobooIAP (Deprecated)
 
-> No longer maintained. Please see the [example code](https://github.com/dooboolab/dooboolab.com/blob/main/src/components/pages/Sponsor.tsx) in [dooboolab.com](https://github.com/dooboolab/dooboolab.com) instead.
+> No longer maintained. Please see the [example code](https://github.com/dooboolab/homepage/blob/1176daaf39a3bbccc7a1b46dfd18b29ee980929a/src/components/pages/Sponsor.tsx) in [dooboolab.com](https://github.com/dooboolab/homepage) instead.
 
 [![CircleCI](https://circleci.com/gh/hyochan/DoobooIAP.svg?style=svg)](https://circleci.com/gh/hyochan/DoobooIAP)
 [![codecov](https://codecov.io/gh/hyochan/DoobooIAP/branch/master/graph/badge.svg)](https://codecov.io/gh/hyochan/DoobooIAP)
